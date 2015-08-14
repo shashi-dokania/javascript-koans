@@ -162,32 +162,37 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+  
+  expect(palindrome).toBe();  
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-    var smallest;
-    for(var i = 40; ; i+=10){
-      for(var j = 20; j >= 2; j--){
-        if(i % j !== 0){
-          break;
+    function smallestDivisibleByOneToTwenty(){
+      var smallest;
+      for(var i = 40; ; i+=10){
+        for(var j = 20; j >= 2; j--){
+          if(i % j !== 0){
+            break;
+          }
+        }
+        if (j < 2) {
+          smallest = i;
+          return smallest;
         }
       }
-      if (j < 2) {
-        smallest = i;
-        break;
-      }
-    }
-  expect(smallest).toBe(232792560);
+    };
+  expect(smallestDivisibleByOneToTwenty()).toBe(232792560);
     
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
     
+  expect(difference).toBe();
   });
 
   it("should find the 10001st prime", function () {
 
+  expect(10001).toBe();
   });
   
 });
