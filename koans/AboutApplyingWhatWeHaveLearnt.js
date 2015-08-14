@@ -186,8 +186,36 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
+    function difference(num1, num2){
+    var rangeArr = [], sqrArr = [];
+    var sumRange = 0, sumSqr = 0;
+    var result;
+
+    // creating an array for the range of numbers
+    for(var i = num1; i <= num2; i++){
+        rangeArr.push(i);
+    }
     
-  expect(difference).toBe();
+    //creating another array with the square of each num in range array
+    for(var i = 0; i < rangeArr.length; i++){
+        sqrArr.push(rangeArr[i] * rangeArr[i]);
+    }
+    
+    // summing all the numbers in range array
+    _.each(rangeArr, function(val){
+        sumRange += val;
+    })
+    
+    //summing the squares of each number
+    _.each(sqrArr, function(val){
+        sumSqr += val;
+    })
+    
+    result = (sumRange * sumRange) - sumSqr;
+    return result;
+}
+    
+  expect(difference(1, 10)).toBe(2640);
   });
 
   it("should find the 10001st prime", function () {
