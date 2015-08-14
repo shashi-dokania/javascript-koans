@@ -37,7 +37,7 @@ describe("About Applying What We Have Learnt", function() {
     var productsICanEat = [];
 
     //using _.filter and _.all
-    
+
     productsICanEat = _.filter(products, function(pizza){
       return _.all(pizza, function(){
         var noMushrooms = true;
@@ -130,8 +130,34 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+  
   it("should find the largest prime factor of a composite number", function () {
+
+    largestPrimeFactor = function(compositeNum){
+      //finding the factors of composite number
+      var factors = [];
+      for(var i = 2; i < compositeNum; i++){
+        if(compositeNum % i === 0){
+          factors.push(i);
+        }
+      }
+      //filtering the factors for prime number
+      var prime = [];
+      _.each(factors, function(val){
+        var isPrime = true;
+        for(var i = 2; i < val; i++){
+          if(val % i === 0) {
+            isPrime = false;
+          }
+        }
+        if(isPrime){
+          prime.push(val);
+        }
+      })
+    // returning the largest prime factor
+      return prime.pop();
+    }
+    expect(largestPrimeFactor(10001)).toBe(137);
   
   });
 
@@ -151,5 +177,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+  
 });
