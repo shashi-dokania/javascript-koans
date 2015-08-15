@@ -133,30 +133,37 @@ describe("About Applying What We Have Learnt", function() {
   
   it("should find the largest prime factor of a composite number", function () {
 
-    largestPrimeFactor = function(compositeNum){
-      //finding the factors of composite number
-      var factors = [];
-      for(var i = 2; i < compositeNum; i++){
-        if(compositeNum % i === 0){
-          factors.push(i);
-        }
-      }
-      //filtering the factors for prime number
-      var prime = [];
-      _.each(factors, function(val){
-        var isPrime = true;
-        for(var i = 2; i < val; i++){
-          if(val % i === 0) {
-            isPrime = false;
+      //checking for prime
+      function isPrime(num){
+        var prime = true;
+        for(var j = 2; j <= Math.sqrt(num); j++){
+          if(num % j === 0){
+            prime = false; 
           }
         }
-        if(isPrime){
-          prime.push(val);
+        return prime;
+      }
+      
+      function largestPrimeFactor(compositeNum){
+        
+        //creating an array of prime factors of the number
+        var primeFactors = [];
+        for(var i = 2; i < Math.sqrt(compositeNum); i++){
+          if(compositeNum % i === 0 && isPrime(i)) {
+            primeFactors.push(i);
+            
+            if(isPrime(compositeNum/i)) {
+              primeFactors.push(compositeNum/i);
+            }
+          }
+
         }
-      })
-    // returning the largest prime factor
-      return prime.pop();
-    }
+        primeFactors.sort(function(a, b){return a-b});
+
+        //returning the largest prime factor
+        return primeFactors.pop();
+      };
+
     expect(largestPrimeFactor(10001)).toBe(137);
   
   });
