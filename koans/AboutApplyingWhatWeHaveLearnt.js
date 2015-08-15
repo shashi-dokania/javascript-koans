@@ -185,7 +185,7 @@ describe("About Applying What We Have Learnt", function() {
     };
   
   expect(largestPalindrome()).toBe(906609);
-    
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
@@ -242,7 +242,27 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the 10001st prime", function () {
 
-  expect(10001).toBe();
+    function nPrime(n){
+      var arr = [2, 3];
+
+      for(var i = 5; ; i+=2){
+        var isPrime = true;
+        for(var j = 3; j <= Math.sqrt(i); j+=2){
+          if(i % j === 0){
+            isPrime = false; 
+          }
+        }
+        if(isPrime){
+          arr.push(i);
+        }
+        if(arr.length === n){
+          break;
+        }
+      }
+      return arr[n-1];
+    };
+
+  expect(nPrime(10001)).toBe(104743);
   });
   
 });
